@@ -23,7 +23,7 @@ text = "<h1 style='{}'>Restaurante do Robô</h1>".format(style)
 header_container.markdown(text, unsafe_allow_html=True)
 
 if pagina_atual == "Cardápio":
-    exibir_cardapio()  # Chame a função da "Página 1"
+    exibir_cardapio(cardapio)  # Chame a função da "Página 1"
 
 if pagina_atual == "Pedidos":
     st.subheader("Buscar Pedido ")
