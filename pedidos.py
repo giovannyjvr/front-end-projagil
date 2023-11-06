@@ -30,6 +30,7 @@ def exibir_pedidos(id_pedidos):
                 st.markdown('- ' + pedido['status'])
                 if st.button('**Pronto**', key=pedido['_id']):
                     atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id'], 'status': 'Pronto'})
+                    st.rerun()
 
 
     with tab2:
@@ -44,6 +45,7 @@ def exibir_pedidos(id_pedidos):
                 st.markdown('- ' + pedido['status'])
                 if st.button('**Retirado**', key=pedido['_id']):
                     atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id'], 'status': 'Retirado'})
+                    st.rerun()
 
 
     with tab3:
@@ -57,6 +59,7 @@ def exibir_pedidos(id_pedidos):
                 st.markdown('- ' + f"<p style='color: orange;'> {pedido['status']}",unsafe_allow_html=True)
                 if st.button('**Deletar**', key=pedido['_id']):
                     deletar_pedido = requests.delete(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id']})
+                    st.rerun()
     
     # # Botão para buscar o pedido pelo ID
     # if st.sidebar.button("Buscar"):

@@ -29,6 +29,7 @@ def exibir_pedido_filtrado(id_pedidos,id_filtrado):
             if pronto:
                 atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": id_filtrado, 'status': 'Pronto'})
                 atualizar_pedido
+                st.rerun()
 
         elif pedido['status'] == 'Pronto': 
             st.markdown(f"<p style='color: green;'> PEDIDO {pedido['id']}</p>", unsafe_allow_html=True)
@@ -39,6 +40,7 @@ def exibir_pedido_filtrado(id_pedidos,id_filtrado):
             if st.button('**Retirado**', key=id_filtrado):
                 atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": id_filtrado, 'status': 'Retirado'})
                 atualizar_pedido
+                st.rerun()
 
         elif pedido['status'] == 'Retirado':
             st.markdown(f"<p style='color: orange;'> PEDIDO {pedido['id']}</p>", unsafe_allow_html=True)
@@ -49,6 +51,7 @@ def exibir_pedido_filtrado(id_pedidos,id_filtrado):
             if st.button('**Deletar**', key=id_filtrado):
                 deletar_pedido = requests.delete(f'{BASE_URL}restaurante/pedidos', json={"_id": id_filtrado})
                 deletar_pedido
+                st.rerun()
 
         elif response.status_code == 404:
             st.write("Pedido não encontrado.")
