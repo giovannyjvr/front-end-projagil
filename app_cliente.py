@@ -4,18 +4,19 @@ from cliente_filtrado import mostra_filtrado
 
 # Variável para controlar a página atual
 
+#parte para colocar o logo e ajustar o titulo.
 logo = "robochefe.png"
+st.image(logo, width=100)  # Ajuste a largura conforme necessário
 header_container = st.container()
-header_container.image(logo, width= 40)
-
-style = "font-size: 25px; margin-top: -30px;"
-text = "<h1 style='{}'>Bem-vindo Ao Restaurante do Robô</h1>".format(style)
+style = "font-size: 40px; display: flex; align-items: center; justify-content: center; margin-top: -17%; margin-left: 30%;"
+text = f"<h1 style='{style}'>Restaurante do Robô</h1>"
 header_container.markdown(text, unsafe_allow_html=True)
-
+#fim da parte do logo.
 
 pagina_atual = "cliente_completo"
 
-numero_pedido = st.text_input("Insira o número do pedido:")
+st.markdown(f"<h1 style='font-size: 20px;'> Insira a SENHA do seu Pedido",unsafe_allow_html=True)
+numero_pedido = st.text_input("")
 
 filtrar = st.button("Filtrar")
 

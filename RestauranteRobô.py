@@ -6,13 +6,15 @@ from pedidos import id_pedidos
 from add_prato import exibir_add
 from delete_prato import deletar_prato
 
-
+#parte para colocar o logo e ajustar o titulo.
 logo = "robochefe.png"
 st.image(logo, width=100)  # Ajuste a largura conforme necessário
 header_container = st.container()
 style = "font-size: 40px; display: flex; align-items: center; justify-content: center; margin-top: -17%; margin-left: 30%;"
 text = f"<h1 style='{style}'>Restaurante do Robô</h1>"
 header_container.markdown(text, unsafe_allow_html=True)
+#fim da parte do logo.
+
 
 # Variável para controlar a página atual
 cardapio = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio"
