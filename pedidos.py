@@ -9,7 +9,7 @@ def exibir_pedidos(id_pedidos):
 
     pedidos = requests.get(f'{BASE_URL}pedidos').json()["pedidos"]
 
-    tab1, tab2, tab3 = st.tabs(["Pedidos", "Pronto", "Histórico"])
+    tab1, tab2, tab3 = st.tabs(["Em Andamento", "Pronto", "Histórico"])
 
     with tab1:
         for pedido in pedidos:
