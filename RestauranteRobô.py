@@ -12,8 +12,8 @@ text = f"<h1 style='{style}'>Restaurante do Robô</h1>"
 header_container.markdown(text, unsafe_allow_html=True)
 
 # Variável para controlar a página atual
-cardapio = "http://localhost:5000/cardapio"
-pedidos = "http://localhost:5000/pedidos"
+cardapio = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio"
+pedidos = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/pedidos"
 
 pagina_atual = st.selectbox("Selecione uma página", ["Cardápio",
                                                       "Pedidos"]) 
@@ -21,7 +21,7 @@ pagina_atual = st.selectbox("Selecione uma página", ["Cardápio",
 
 
 if pagina_atual == "Cardápio":
-    exibir_cardapio()  # Chame a função da "Página 1"
+    exibir_cardapio(cardapio)  # Chame a função da "Página 1"
 
 if pagina_atual == "Pedidos":
     st.subheader("Buscar Pedido ")

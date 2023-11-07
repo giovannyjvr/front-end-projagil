@@ -4,7 +4,7 @@ from cliente_filtrado import mostra_filtrado
 
 
 def mostra_tela_user():
-    BASE_URL = 'http://127.0.0.1:5000/'
+    BASE_URL = 'https://restaurante-robo-2d22d9a49cb9.herokuapp.com/'
 
     col1, col2 = st.columns(2)
     # Divide a tela em duas colunas

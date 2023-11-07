@@ -4,7 +4,7 @@ import requests
 
 
 def exibir_pedido_filtrado(id_pedidos,id_filtrado):
-    BASE_URL = 'http://127.0.0.1:5000/'
+    BASE_URL = 'https://restaurante-robo-2d22d9a49cb9.herokuapp.com/'
 
     pedidos = requests.get(f'{BASE_URL}pedidos').json()["pedidos"]
 
