@@ -7,8 +7,8 @@ from pedidos import id_pedidos
 
 
 # Variável para controlar a página atual
-cardapio = "http://localhost:5000/cardapio"
-pedidos = "http://localhost:5000/pedidos"
+cardapio = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio"
+pedidos = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/pedidos"
 
 pagina_atual = st.selectbox("Selecione uma página", ["Cardápio",
                                                       "Pedidos"]) 

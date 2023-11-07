@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-url_cardapio = "http://localhost:5000/cardapio"  
+url_cardapio = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio"  
 
 def exibir_cardapio(url_cardapio):
     # Título do aplicativo
@@ -19,7 +19,7 @@ def exibir_cardapio(url_cardapio):
         preco_prato = st.text_input("Insira o preço do prato")
         descricao_prato = st.text_input("Insira a descrição do prato")
         if st.button("Adicionar"):
-            adicionar_prato = requests.post('http://localhost:5000/cardapio', json={"name": nome_prato,"description":descricao_prato, "price": preco_prato})
+            adicionar_prato = requests.post('https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio', json={"name": nome_prato,"description":descricao_prato, "price": preco_prato})
             if response.status_code in (200,201):
                 st.success("Prato adicionado com sucesso!")
             else:
@@ -59,7 +59,7 @@ def exibir_cardapio(url_cardapio):
         id_prato = prato_info["_id"]
         st.markdown(f"**<p style='font-size: 20px;'>{nome_prato}</p>**",unsafe_allow_html=True)
         if st.button(f'Deletar Prato', key=id_prato):
-            deletar_prato = requests.delete(f'http://localhost:5000/cardapio', json={"_id": id_prato})
+            deletar_prato = requests.delete(f'https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio', json={"_id": id_prato})
             st.rerun()
         quantidade_sel = st.number_input(f"Selecione a quantidade de {nome_prato}", min_value=0, max_value=10, value=0)
         if quantidade_sel > 0:
@@ -74,7 +74,7 @@ def exibir_cardapio(url_cardapio):
             quantidade = dados
             nomes.append(nome)
             quantidades.append(quantidade)
-        inserir_prato = requests.post('http://localhost:5000/pedidos', json={"nome": nomes, "quantidade": quantidades, "status": "Em preparo"})
+        inserir_prato = requests.post('https://restaurante-robo-2d22d9a49cb9.herokuapp.com/pedidos', json={"nome": nomes, "quantidade": quantidades, "status": "Em preparo"})
         st.write("Pedido adicionado com sucesso")
         if response.status_code == 200:
             st.success("Pedido adicionado com sucesso!")

@@ -4,7 +4,7 @@ import requests
 st.title("Pratos Restaurante 6° P2")
 
 # Faz uma solicitação à API Flask para obter dados
-response = requests.get('http://localhost:5000/cardapio')
+response = requests.get('https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio')
 if response.status_code == 200:
     data = response.json()
     st.write("Dados da API:", data)
