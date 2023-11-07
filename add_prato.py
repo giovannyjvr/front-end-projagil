@@ -27,20 +27,3 @@ def exibir_add(url_cardapio):
             st.rerun()
     else:
         st.error("Erro ao obter o cardápio. Verifique se o servidor Flask está em execução.")
-
-    # URL do endpoint Flask que fornece o cardápio em formato JSON
-    # Fazer uma solicitação GET para obter o cardápio
-    # response = requests.get(url_cardapio)
-
-    # cardapio = response.json()['cardapio']
-    # st.subheader("Adicionar Prato")
-    # nome_prato = st.text_input("Insira o nome do prato")
-    # preco_prato = st.text_input("Insira o preço do prato")
-    # descricao_prato = st.text_input("Insira a descrição do prato")
-    # if st.button("Adicionar"):
-    #     adicionar_prato = requests.post('https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio', json={"name": nome_prato,"description":descricao_prato, "price": preco_prato})
-    #     if response.status_code in (200,201):
-    #         st.success("Prato adicionado com sucesso!")
-    #     else:
-    #         st.error("Erro ao adicionar o prato.")
-    #     st.rerun()
