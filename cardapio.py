@@ -4,7 +4,7 @@ import requests
 
 def exibir_cardapio():
     # Título do aplicativo
-    st.markdown("<h1 style='font-size: 52px;'>Cardápio</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='font-size: 30px; display: flex; flex-direction: column; align-items: center; text-align: center;'> Cardápio",unsafe_allow_html=True)
 
     # URL do endpoint Flask que fornece o cardápio em formato JSON
     url_cardapio = "http://localhost:5000/cardapio"  

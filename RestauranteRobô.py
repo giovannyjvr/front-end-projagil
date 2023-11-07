@@ -1,10 +1,15 @@
 import streamlit as st
-from app import exibir_cardapio  # Importe a função da "Página 1"
+from cardapio import exibir_cardapio  # Importe a função da "Página 1"
 from pedidos import exibir_pedidos
 from pedido_filtrado import exibir_pedido_filtrado
 from pedidos import id_pedidos
 
-
+logo = "robochefe.png"
+st.image(logo, width=100)  # Ajuste a largura conforme necessário
+header_container = st.container()
+style = "font-size: 40px; display: flex; align-items: center; justify-content: center; margin-top: -17%; margin-left: 30%;"
+text = f"<h1 style='{style}'>Restaurante do Robô</h1>"
+header_container.markdown(text, unsafe_allow_html=True)
 
 # Variável para controlar a página atual
 cardapio = "http://localhost:5000/cardapio"
@@ -14,13 +19,6 @@ pagina_atual = st.selectbox("Selecione uma página", ["Cardápio",
                                                       "Pedidos"]) 
 #seleciona a página que quer ir. parte apenas do restaurante.
 
-logo = "robochefe.png"
-header_container = st.container()
-header_container.image(logo, width= 40)
-
-style = "font-size: 25px; margin-top: -30px;"
-text = "<h1 style='{}'>Restaurante do Robô</h1>".format(style)
-header_container.markdown(text, unsafe_allow_html=True)
 
 if pagina_atual == "Cardápio":
     exibir_cardapio()  # Chame a função da "Página 1"
