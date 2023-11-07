@@ -3,6 +3,9 @@ from cardapio import exibir_cardapio  # Importe a função da "Página 1"
 from pedidos import exibir_pedidos
 from pedido_filtrado import exibir_pedido_filtrado
 from pedidos import id_pedidos
+from add_prato import exibir_add
+from delete_prato import deletar_prato
+
 
 logo = "robochefe.png"
 st.image(logo, width=100)  # Ajuste a largura conforme necessário
@@ -16,12 +19,24 @@ cardapio = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/cardapio"
 pedidos = "https://restaurante-robo-2d22d9a49cb9.herokuapp.com/pedidos"
 
 pagina_atual = st.selectbox("Selecione uma página", ["Cardápio",
-                                                      "Pedidos"]) 
+                                                      "Pedidos",
+                                                      "Adicionar Pedido", 
+                                                      "Deletar Pedido"]) 
 #seleciona a página que quer ir. parte apenas do restaurante.
 
 
 if pagina_atual == "Cardápio":
+    #titulo da página
+    st.markdown(f"<h1 style='font-size: 30px; display: flex; flex-direction: column; align-items: center; text-align: center;'> Cardápio",unsafe_allow_html=True)
     exibir_cardapio(cardapio)  # Chame a função da "Página 1"
+
+if pagina_atual == "Adicionar Pedido":
+    st.markdown(f"<h1 style='font-size: 30px; display: flex; flex-direction: column; align-items: center; text-align: center;'> Adicionar Prato Novo",unsafe_allow_html=True)
+    exibir_add(cardapio)
+
+if pagina_atual == "Deletar Pedido":
+    st.markdown(f"<h1 style='font-size: 30px; display: flex; flex-direction: column; align-items: center; text-align: center;'> Deletar Pedido",unsafe_allow_html=True)
+    deletar_prato(cardapio)
 
 if pagina_atual == "Pedidos":
     st.subheader("Buscar Pedido ")
@@ -35,7 +50,3 @@ if pagina_atual == "Pedidos":
 
     elif pagina_atual == "Pedidos":
         exibir_pedidos(id_pedidos)
-
-elif pagina_atual == "filtrado":
-    st.title("Página 3")
-    st.write("Conteúdo da Página 3")

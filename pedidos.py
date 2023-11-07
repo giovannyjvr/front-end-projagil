@@ -15,12 +15,12 @@ def exibir_pedidos(id_pedidos):
         for pedido in pedidos:
             if pedido['status'] == 'Em preparo':
                 st.markdown(f"<p style='front-size: 28px;font-weight: bold;'>PEDIDO {pedido['id']}</p>", unsafe_allow_html=True)
-                # st.markdown('- ' + pedido['nome'][i])
                 id_pedidos[f"{pedido['id']}"] = pedido['_id']
 
                 for i in range(len(pedido['nome'])):
                     st.markdown('- ' +f"**{pedido['nome'][i]}**" + f' | ' + str(pedido['quantidade'][i]))
                 st.markdown('- ' + f"<p style='color: red;'> {pedido['status']}",unsafe_allow_html=True)
+
                 if st.button('**Pronto**', key=pedido['_id']):
                     atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id'], 'status': 'Pronto'})
                     st.rerun()
@@ -36,6 +36,7 @@ def exibir_pedidos(id_pedidos):
                 for i in range(len(pedido['nome'])):
                     st.markdown('- ' +f"**{pedido['nome'][i]}**" + f' | ' + str(pedido['quantidade'][i]))
                 st.markdown('- ' + f"<p style='color: green;'> {pedido['status']}",unsafe_allow_html=True)
+
                 if st.button('**Retirado**', key=pedido['_id']):
                     atualizar_pedido = requests.put(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id'], 'status': 'Retirado'})
                     st.rerun()
@@ -51,6 +52,7 @@ def exibir_pedidos(id_pedidos):
                 for i in range(len(pedido['nome'])):
                     st.markdown('- ' +f"**{pedido['nome'][i]}**" + f' | ' + str(pedido['quantidade'][i]))
                 st.markdown('- ' + f"<p style='color: orange;'> {pedido['status']}",unsafe_allow_html=True)
+                
                 if st.button('**Deletar**', key=pedido['_id']):
                     deletar_pedido = requests.delete(f'{BASE_URL}restaurante/pedidos', json={"_id": pedido['_id']})
                     st.rerun()
